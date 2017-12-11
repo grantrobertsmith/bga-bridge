@@ -1,0 +1,339 @@
+/**
+ *------
+ * BGA framework: © Gregory Isabelli <gisabelli@boardgamearena.com> & Emmanuel Colin <ecolin@boardgamearena.com>
+ * Belote implementation : © David Bonnin <david.bonnin44@gmail.com>
+ * Bridge implementation : © Grant Smith <grantrobertsmith@gmail.com>
+ *
+ * This code has been produced on the BGA studio platform for use on http://boardgamearena.com.
+ * See http://en.boardgamearena.com/#!doc/Studio for more information.
+ * -----
+ *
+ * bridge.css
+ *
+ * Bridge stylesheet
+ *
+ */
+
+/*
+    This is the CSS stylesheet of your game User Interface.
+    
+    Styles defined on this file will be applied to the HTML elements you define in your
+    HTML template (bridge_bridge.tpl), and to HTML elements you create dynamically
+    (in bridge.js).
+    
+    Usually, you are using CSS to:
+    
+    1°) define the overall layout of your game
+        (ex: place the board on the top left, place player's hand beside, place the deck on the right, ...).
+
+    2°) create your CSS-sprites:
+        All images of your games should be gathered into a small number of image files. Then, using
+        background-image and background-position CSS properties, you create HTML blocks that can 
+        display these images correctly (see example below).
+    
+    3°) ... anything else:
+        It is really easy to add and remove CSS classes dynamically from your Javascript with
+        dojo.addClass and dojo.removeClass. It is also easy to check if an element has a class
+        (dojo.hasClass) or to get all elements with a specific class (dojo.query). This is why,
+        very often, using CSS classes for the logic of your user interface allow you to do complex
+        thing easily.
+        
+        
+     Note: on the production platform, this file will be compressed and comments will be removed.
+           Consequently, don't hesitate to put as many comments as necessary.
+*/
+
+@import url(../../../css/csslayer.css); /* Note: you must not use any @import directive other than this one */
+
+/********* You can start writing your CSS below this line: **********/
+
+
+/** Table layout **/
+
+.whole_table{
+	margin: 0px auto;
+	border: 0px solid black;
+}
+
+#playertables {
+    position: relative;
+    float: left;
+    width: 550px;
+    /*height: 380px;*/
+	height: 409px;
+    margin-left: 20px;
+    margin-top: 10px;
+	background-image: url('img/green_mat.png');
+    background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.playertablename { 
+    font-weight: bold;
+    text-align: center;
+	font-size: 1em;
+	font-weight: bold;
+    white-space: nowrap;
+	overflow: hidden;
+}
+
+.playertable {
+    position: absolute;
+    text-align: center;
+    width: 130px;
+    height: 130px;
+}
+
+.playertable_N {
+    left: 48.5%;
+    top: 0px;
+    margin-left: -65px; /* half of 130 */
+}
+.playertable_S {
+    left: 48.5%;
+    bottom: 0px;
+    margin-left: -65px; /* half of 130 */
+}
+.playertable_W {
+    left: 10px;
+    top: 48.5%;
+    margin-top: -65px; /* half of 130 */
+}
+.playertable_E {
+    right: 10px;
+    top: 48.5%;
+    margin-top: -65px; /* half of 130 */
+}
+.playertablecard {
+    display: inline-block;
+    position: relative;
+    margin-top: 10px;
+    width: 72px;
+    height: 96px;
+}
+
+.bidding_info{
+    float: right;
+    width: 300px;
+    height: 600px;
+    position: relative;
+    margin-right: 20px;
+}
+
+.biddingPalette{
+    text-align: center;
+    width: 300px;
+    height: 550px;
+    position: absolute;
+    cursor: default;
+}
+.cardToTake{
+    display: inline-block;
+    position: relative;
+    margin-top: 5px;
+    width: 72px;
+    height: 96px;
+}
+
+.trumpBlock{
+    text-align: center;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    bottom: 0px;
+}
+.trumpColor{
+    display: inline-block;
+    position: relative;
+    margin-top: 5px;
+    width: 100px;
+    height: 96px;
+}
+
+#dealer_icon {
+    display: block;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url('img/dealer-icon.png');    
+}
+
+#taker_icon {
+    display: block;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url('img/taker-icon.png');    
+}
+
+.clockwise_icon {
+    display: block;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url('img/clockwise.png');    
+}
+
+.counterclockwise_icon {
+    display: block;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url('img/counterclockwise.png');    
+}
+
+#orientation {
+    position: absolute;
+    text-align: center;
+    width: 32px;
+    height: 32px;
+	left:50%;
+	top:50%;
+	margin-left: -16px;
+	margin-top: -16px;
+}
+
+.tricks_icon {
+    display: inline-block;
+    width: 32px;
+    height: 22px;
+    background-image: url('img/tricks-icon.png');    
+}
+
+.myHand{
+    position: relative;
+    top: 430px;
+}
+
+/*** cards on table ***/
+
+.cardontable {
+    position: absolute;
+    width: 72px;
+    height: 96px;
+    background-image: url('img/cards.jpg'); 
+}
+
+.cardvisible {
+    position: absolute;
+    width: 72px;
+    height: 96px;
+    background-image: url('img/cards.jpg'); 
+}
+
+
+.spade {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    background-image: url('img/spade.png');
+    background-repeat: no-repeat;
+    background-position: center;    
+}
+
+.heart {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    background-image: url('img/heart.png');
+    background-repeat: no-repeat;
+    background-position: center;    
+}
+
+.club {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    background-image: url('img/club.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.diamond {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    background-image: url('img/diamond.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.all_trumps {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    background-image: url('img/all_trumps.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.no_trumps {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    background-image: url('img/no_trumps.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Icons */
+
+.heart_icon {
+    display: inline-block;
+    vertical-align:middle;
+    width: 16px;
+    height: 16px;
+    background-image: url('img/heart_icon.jpg');
+}
+
+.spade_icon {
+    display: inline-block;
+    vertical-align:middle;
+    width: 16px;
+    height: 16px;
+    background-image: url('img/spade_icon.jpg');
+}
+
+.diamond_icon {
+    display: inline-block;
+    vertical-align:middle;
+    width: 16px;
+    height: 16px;
+    background-image: url('img/diamond_icon.jpg');
+}
+
+.club_icon {
+    display: inline-block;
+    vertical-align:middle;
+    width: 16px;
+    height: 16px;
+    background-image: url('img/club_icon.jpg');
+}
+
+
+/* Speech bubble style */
+/* Taken from the css file for Love Letter on BGA */
+
+.discussion_bubble {
+    background: white none repeat scroll 0 0;
+    border-radius: 10px;
+    bottom: 100%;
+    color: #000;
+    display: none;
+    font-weight: normal;
+    left: 0;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 100;
+}
+.discussion_bubble::after {
+    border-color: #ffffff transparent;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    bottom: -10px;
+    content: "";
+    display: block;
+    left: 35%;
+    position: absolute;
+    width: 0;
+}
